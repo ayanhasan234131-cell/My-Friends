@@ -19,7 +19,6 @@
       min-height: 100vh;
       padding: 60px 20px;
       box-sizing: border-box;
-      color: black;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -36,16 +35,15 @@
       color: black;
     }
 
-    .arjan {
-      background-color: #4d88ff;
-      color: white;
-    }
-
     .card {
       background: rgba(255, 255, 255, 0.2);
       padding: 30px;
       border-radius: 15px;
       max-width: 500px;
+
+      /* ✅ New Border Styling */
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .friend-img {
@@ -92,21 +90,10 @@
     </div>
   </section>
 
-  <section class="friend arjan">
-    <div class="card">
-      <h2>💙 Arjan</h2>
-      <img src="arjan.jpg" class="friend-img" alt="Arjan's Photo">
-      <p>
-        Arjan is my school friend and a big movie fan. 
-        He loves watching movies and recently started watching Stranger Things because I suggested it. 
-        He’s really fun to talk to about shows and movies.
-      </p>
-    </div>
-  </section>
-
   <footer>
     Made with ❤️ for my friends
   </footer>
 
 </body>
 </html>
+

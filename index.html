@@ -35,34 +35,53 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    h1 {
+    /* ✅ Top Bar so it doesn't touch Abhinav */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       padding: 20px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .site-title {
+      font-size: 2.6rem; /* ✅ Bigger title */
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
     }
 
     .theme-toggle {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 20px;
-      background: #000;
-      color: #fff;
-      cursor: pointer;
-      font-size: 14px;
+      padding: 14px 28px; /* ✅ Bigger button */
+      font-size: 1.1rem;
       font-weight: bold;
-      z-index: 999;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
     }
 
     body.dark .theme-toggle {
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #fff;
+    }
+
+    /* Push content down so it doesn't hide under top bar */
+    .spacer {
+      height: 150px;
     }
 
     .friend {
       min-height: 100vh;
       padding: 60px 20px;
-      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -117,11 +136,14 @@
     }
   </style>
 </head>
-<body class="dark">
+<body>
 
-  <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
+  <div class="top-bar">
+    <div class="site-title">My Awesome Friends</div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+  </div>
 
-  <h1>My Awesome Friends</h1>
+  <div class="spacer"></div>
 
   <section class="friend abhinav">
     <div class="card">
@@ -152,13 +174,22 @@
   </footer>
 
   <script>
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+
     function toggleTheme() {
       document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
     }
   </script>
 
 </body>
 </html>
-
-
 

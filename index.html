@@ -6,28 +6,15 @@
 
   <style>
     :root {
-      --bg: #f5f5f5;
-      --text: #000;
-      --card-bg: rgba(255,255,255,0.85);
-      --card-border: rgba(0,0,0,0.25);
-      --footer-bg: #111;
-      --footer-text: #fff;
-      --abh-grad: linear-gradient(135deg, #ff4d4d, #ff8080);
-      --dep-grad: linear-gradient(135deg, #6a1b9a, #ab47bc);
-      --topbar-bg: rgba(255,255,255,0.9);
-      --topbar-text: #000;
-    }
-
-    body.dark {
       --bg: #0e0e0e;
-      --text: #fff;
-      --card-bg: rgba(0,0,0,0.5);
+      --text: #ffffff;
+      --card-bg: rgba(0, 0, 0, 0.6);
       --card-border: rgba(255,255,255,0.2);
       --footer-bg: #000;
       --footer-text: #aaa;
       --abh-grad: linear-gradient(135deg, #8b0000, #ff4d4d);
       --dep-grad: linear-gradient(135deg, #3a0f6b, #9c27b0);
-      --topbar-bg: rgba(0,0,0,0.7);
+      --topbar-bg: rgba(0,0,0,0.8);
       --topbar-text: #fff;
     }
 
@@ -37,50 +24,25 @@
       background: var(--bg);
       color: var(--text);
       text-align: center;
-      transition: background 0.3s, color 0.3s;
     }
 
-    /* Top Bar */
     .top-bar {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       padding: 20px;
       background: var(--topbar-bg);
       backdrop-filter: blur(8px);
-      color: var(--topbar-text);
       z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
     }
 
     .site-title {
       font-size: 2.6rem;
       font-weight: bold;
-      margin-bottom: 10px;
+      color: var(--topbar-text);
+      margin-bottom: 15px;
     }
 
-    .theme-toggle {
-      padding: 14px 30px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      background: #000;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    body.dark .theme-toggle {
-      background: #fff;
-      color: #000;
-    }
-
-    /* ✅ Bigger Music Button */
     .music-toggle {
       padding: 18px 40px;
       font-size: 1.3rem;
@@ -93,13 +55,8 @@
       box-shadow: 0 8px 18px rgba(0,0,0,0.4);
     }
 
-    body.dark .music-toggle {
-      background: #ff8080;
-      color: #000;
-    }
-
     .spacer {
-      height: 190px;
+      height: 170px;
     }
 
     .friend {
@@ -113,8 +70,8 @@
     .abhinav {
       background: var(--abh-grad);
       color: white;
-      border-top: 6px solid #000;
-      border-bottom: 6px solid #000;
+      border-top: 6px solid black;
+      border-bottom: 6px solid black;
       box-shadow: inset 0 10px 10px rgba(0,0,0,0.5),
                   inset 0 -10px 10px rgba(0,0,0,0.5);
     }
@@ -122,14 +79,15 @@
     .deepika {
       background: var(--dep-grad);
       color: white;
-      border-top: 6px solid #000;
-      border-bottom: 6px solid #000;
+      border-top: 6px solid black;
+      border-bottom: 6px solid black;
       box-shadow: inset 0 10px 10px rgba(0,0,0,0.5),
                   inset 0 -10px 10px rgba(0,0,0,0.5);
     }
 
     .card {
       background: var(--card-bg);
+      color: var(--text);
       padding: 30px;
       border-radius: 15px;
       max-width: 500px;
@@ -158,12 +116,11 @@
 </head>
 <body>
 
-  <!-- 🎵 Background music -->
-  <audio id="bgMusic" src="music.mp3.flac" loop></audio>
+  <!-- 🎵 Background Music -->
+  <audio id="bgMusic" src="music.mp3" loop></audio>
 
   <div class="top-bar">
     <div class="site-title">My Awesome Friends</div>
-    <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
     <button class="music-toggle" onclick="toggleMusic()" id="musicBtn">▶ Play Music</button>
   </div>
 
@@ -174,7 +131,7 @@
       <h2>❤️ Abhinav</h2>
       <img src="abhinav.jpg" class="friend-img">
       <p>
-        Abhinav is my online friend and honestly one of my best friends. Even though we haven’t met in real life yet, I really hope we can meet someday. We both love talking about cinema and TV shows, and those conversations never get boring. He makes things fun just by being there, and I’m really lucky to have him as a friend.
+        Abhinav is my online friend and honestly one of my best friends. Even though we haven’t met in real life yet, I really hope we can meet someday. We both love talking about cinema and TV shows, and our conversations never get boring. He makes everything more fun just by being there, and I’m really lucky to have him as a friend.
       </p>
     </div>
   </section>
@@ -184,7 +141,7 @@
       <h2>🌸 Deepika</h2>
       <img src="deepika.jpg" class="friend-img">
       <p>
-        Deepika is my school friend and she’s really funny and fun to be around. She can be a little moody sometimes but that just makes her more interesting 😂. She even cries sometimes, but that’s totally okay, it just means she cares a lot. She is also pretty. Talking to her always makes my day better.
+        Deepika is my school friend and she’s really funny and fun to be around. She can be a little moody sometimes, but that just makes her more interesting 😂. She cries sometimes, but that’s totally okay — it just means she cares a lot. She’s really pretty, and talking to her always makes my day better.
       </p>
     </div>
   </section>
@@ -194,17 +151,6 @@
   </footer>
 
   <script>
-    // Theme memory
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark");
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-    }
-
-    // Music toggle
     function toggleMusic() {
       const music = document.getElementById("bgMusic");
       const btn = document.getElementById("musicBtn");

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>My Amazing Friends</title>
+
   <style>
     :root {
       --bg: #f5f5f5;
@@ -13,8 +14,6 @@
       --footer-text: #fff;
       --abh-grad: linear-gradient(135deg, #ff4d4d, #ff8080);
       --dep-grad: linear-gradient(135deg, #6a1b9a, #ab47bc);
-
-      /* ✅ Top bar colors for light mode */
       --topbar-bg: rgba(255,255,255,0.9);
       --topbar-text: #000;
     }
@@ -28,8 +27,6 @@
       --footer-text: #aaa;
       --abh-grad: linear-gradient(135deg, #8b0000, #ff4d4d);
       --dep-grad: linear-gradient(135deg, #3a0f6b, #9c27b0);
-
-      /* ✅ Top bar colors for dark mode */
       --topbar-bg: rgba(0,0,0,0.7);
       --topbar-text: #fff;
     }
@@ -43,7 +40,7 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* ✅ Fixed Top Bar */
+    /* Top Bar */
     .top-bar {
       position: fixed;
       top: 0;
@@ -51,7 +48,7 @@
       width: 100%;
       padding: 20px;
       background: var(--topbar-bg);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       color: var(--topbar-text);
       z-index: 1000;
       display: flex;
@@ -63,19 +60,19 @@
     .site-title {
       font-size: 2.6rem;
       font-weight: bold;
-      color: var(--topbar-text);
       margin-bottom: 10px;
     }
 
     .theme-toggle {
-      padding: 14px 28px;
+      padding: 14px 30px;
       font-size: 1.1rem;
       font-weight: bold;
-      border: none;
       border-radius: 30px;
+      border: none;
+      cursor: pointer;
       background: #000;
       color: #fff;
-      cursor: pointer;
+      margin-bottom: 12px;
     }
 
     body.dark .theme-toggle {
@@ -83,15 +80,32 @@
       color: #000;
     }
 
+    /* ✅ Bigger Music Button */
+    .music-toggle {
+      padding: 18px 40px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-radius: 35px;
+      border: none;
+      cursor: pointer;
+      background: #ff4d4d;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    }
+
+    body.dark .music-toggle {
+      background: #ff8080;
+      color: #000;
+    }
+
     .spacer {
-      height: 160px;
+      height: 190px;
     }
 
     .friend {
       min-height: 100vh;
       padding: 60px 20px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
@@ -121,7 +135,6 @@
       max-width: 500px;
       border: 3px solid var(--card-border);
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      backdrop-filter: blur(6px);
     }
 
     .friend-img {
@@ -140,15 +153,18 @@
       color: var(--footer-text);
       font-size: 1.4rem;
       font-weight: bold;
-      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
 
+  <!-- 🎵 Background music -->
+  <audio id="bgMusic" src="music.mp3" loop></audio>
+
   <div class="top-bar">
     <div class="site-title">My Awesome Friends</div>
     <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+    <button class="music-toggle" onclick="toggleMusic()" id="musicBtn">▶ Play Music</button>
   </div>
 
   <div class="spacer"></div>
@@ -156,11 +172,10 @@
   <section class="friend abhinav">
     <div class="card">
       <h2>❤️ Abhinav</h2>
-      <img src="abhinav.jpg" class="friend-img" alt="Abhinav's Photo">
+      <img src="abhinav.jpg" class="friend-img">
       <p>
         Abhinav is my online friend and one of the coolest people I know. 
-        Even though we haven’t met in real life yet, I really hope we can meet someday. 
-        He’s always fun to talk to and makes things more interesting just by being there.
+        I hope we get to meet someday.
       </p>
     </div>
   </section>
@@ -168,11 +183,9 @@
   <section class="friend deepika">
     <div class="card">
       <h2>🌸 Deepika</h2>
-      <img src="deepika.jpg" class="friend-img" alt="Deepika's Photo">
+      <img src="deepika.jpg" class="friend-img">
       <p>
-        Deepika is super funny and always makes everyone laugh. 
-        She has an awesome vibe and talking to her is always fun. 
-        She’s the kind of person who instantly makes the mood better.
+        Deepika is super funny and always fun to talk to.
       </p>
     </div>
   </section>
@@ -182,20 +195,31 @@
   </footer>
 
   <script>
+    // Theme memory
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark");
     }
 
     function toggleTheme() {
       document.body.classList.toggle("dark");
+      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    }
 
-      if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
+    // Music toggle
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      const btn = document.getElementById("musicBtn");
+
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸ Pause Music";
       } else {
-        localStorage.setItem("theme", "light");
+        music.pause();
+        btn.textContent = "▶ Play Music";
       }
     }
   </script>
 
 </body>
 </html>
+

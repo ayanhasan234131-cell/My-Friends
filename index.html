@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>❤️‍🩹 My Amazing Friends</title>
+  <title>My Amazing Friends</title>
 
   <style>
     :root {
@@ -14,10 +14,7 @@
       --footer-text: #aaa;
 
       --abh-grad: linear-gradient(135deg, #8b0000, #ff4d4d);
-
-      /* NEW: Blue Admiral theme for Sanskar */
       --san-grad: linear-gradient(135deg, #0b3d91, #1e88e5);
-
       --dep-grad: linear-gradient(135deg, #3a0f6b, #9c27b0);
 
       --topbar-bg: rgba(0,0,0,0.8);
@@ -42,11 +39,16 @@
       z-index: 1000;
     }
 
+    /* ✅ Glowing title */
     .site-title {
       font-size: 2.6rem;
       font-weight: bold;
-      color: var(--topbar-text);
+      color: #fff;
       margin-bottom: 15px;
+      text-shadow: 
+        0 0 10px rgba(255, 77, 77, 0.8),
+        0 0 20px rgba(255, 77, 77, 0.6),
+        0 0 40px rgba(255, 77, 77, 0.4);
     }
 
     .music-toggle {
@@ -82,7 +84,6 @@
                   inset 0 -10px 10px rgba(0,0,0,0.5);
     }
 
-    /* NEW: Sanskar section */
     .sanskar {
       background: var(--san-grad);
       color: white;
@@ -136,7 +137,7 @@
   <audio id="bgMusic" src="music.mp3.flac" loop></audio>
 
   <div class="top-bar">
-    <div class="site-title">My Awesome Friends</div>
+    <div class="site-title">❤️‍🩹 My Awesome Friends</div>
     <button class="music-toggle" onclick="toggleMusic()" id="musicBtn">▶ Play Music</button>
   </div>
 
@@ -153,7 +154,7 @@
     </div>
   </section>
 
-  <!-- NEW: Sanskar -->
+  <!-- Sanskar -->
   <section class="friend sanskar">
     <div class="card">
       <h2>💙 Sanskar</h2>
@@ -196,5 +197,6 @@
 
 </body>
 </html>
+
 
 

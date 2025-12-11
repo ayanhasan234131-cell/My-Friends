@@ -12,11 +12,8 @@
       --card-border: rgba(255,255,255,0.2);
       --footer-bg: #000;
       --footer-text: #aaa;
-
       --abh-grad: linear-gradient(135deg, #8b0000, #ff4d4d);
-      --san-grad: linear-gradient(135deg, #0b3d91, #1e88e5);
-      --dep-grad: linear-gradient(135deg, #3a0f6b, #9c27b0);
-
+      --sans-grad: linear-gradient(135deg, #002b80, #005eff);
       --topbar-bg: rgba(0,0,0,0.8);
       --topbar-text: #fff;
     }
@@ -39,16 +36,14 @@
       z-index: 1000;
     }
 
-    /* ✅ Glowing title */
     .site-title {
       font-size: 2.6rem;
       font-weight: bold;
-      color: #fff;
+      color: var(--topbar-text);
       margin-bottom: 15px;
-      text-shadow: 
-        0 0 10px rgba(255, 77, 77, 0.8),
-        0 0 20px rgba(255, 77, 77, 0.6),
-        0 0 40px rgba(255, 77, 77, 0.4);
+      text-shadow: 0 0 10px rgba(255, 77, 77, 0.8),
+                   0 0 20px rgba(255, 77, 77, 0.6),
+                   0 0 40px rgba(255, 77, 77, 0.4);
     }
 
     .music-toggle {
@@ -85,16 +80,7 @@
     }
 
     .sanskar {
-      background: var(--san-grad);
-      color: white;
-      border-top: 6px solid black;
-      border-bottom: 6px solid black;
-      box-shadow: inset 0 10px 10px rgba(0,0,0,0.5),
-                  inset 0 -10px 10px rgba(0,0,0,0.5);
-    }
-
-    .deepika {
-      background: var(--dep-grad);
+      background: var(--sans-grad);
       color: white;
       border-top: 6px solid black;
       border-bottom: 6px solid black;
@@ -143,7 +129,7 @@
 
   <div class="spacer"></div>
 
-  <!-- Abhinav -->
+  <!-- ❤️ Abhinav Section (FIRST NOW) -->
   <section class="friend abhinav">
     <div class="card">
       <h2>❤️ Abhinav</h2>
@@ -154,26 +140,14 @@
     </div>
   </section>
 
-  <!-- Sanskar -->
+  <!-- 💙 Sanskar Section (SECOND) -->
   <section class="friend sanskar">
     <div class="card">
       <h2>💙 Sanskar</h2>
       <img src="sanskar.jpg" class="friend-img">
       <p>
-        Sanskar is my school friend and I see a lot of myself in him. He’s really good in studies and always focused, which motivates me too. He’s also a very nice person, and being around him just feels easy and comfortable.
+        Sanskar is my school friend, and honestly I see a lot of myself in him. He’s really good in studies, chill to talk to, and just a genuinely nice guy. He’s the type of friend who motivates you without even trying.
       </p>
-    </div>
-  </section>
-
-  <!-- Deepika -->
-  <section class="friend deepika">
-    <div class="card">
-      <h2>🌸 Deepika</h2>
-      <img src="deepika.jpg" class="friend-img">
-   <p>
-  Deepika is my school friend and someone I really like being around. She’s funny in her own way and just naturally herself, and yeah she’s kind of a topper too 😄. She has her own vibe, and that’s what makes her special. Talking to her is always easy and fun.
-</p>
-
     </div>
   </section>
 
@@ -198,6 +172,5 @@
 
 </body>
 </html>
-
 
 
